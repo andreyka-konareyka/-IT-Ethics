@@ -6,8 +6,8 @@ import detectEnglish
 def decrypt1():
     print('====  decrypt1  ====')
     encrypt_data = read_write_file.read_data_1byte('ff2_affine_c_all.bmp')
-    a = 167
-    b = 35
+    a = 19
+    b = 236
     l = 256
     a_inverse = affine.findModInverse(a, l)
     decrypt_data = []
@@ -21,8 +21,8 @@ def decrypt1():
 def encrypt1():
     print('====  encrypt1  ====')
     data = read_write_file.read_data_1byte('ff2_affine_c_all.bmp')
-    a = 167
-    b = 35
+    a = 19
+    b = 236
     l = 256
     encrypt_data = data[:50]
     for m in data[50:]:
