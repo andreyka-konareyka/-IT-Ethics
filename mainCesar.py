@@ -65,17 +65,18 @@ def decrypt1():
 
 def decryptUnknowText():
     print('====  decryptUnknowText  ====')
-    encrypt_data = read_write_file.read_data_1byte('f1_encrypt.txt')
+    encrypt_data = read_write_file.read_data_1byte('t3_caesar_c_all.txt')
     print(f'encrypt_data = {encrypt_data[0:15]}')
     for k in range(256):
         # расшифровываем
-        decrypt_data = cesar.decrypt_data(encrypt_data[0:15], key=k)
+        decrypt_data = cesar.decrypt_data(encrypt_data, key=k)
         # смотрим, что получилось
         txt = ''.join([chr(s) for s in decrypt_data])
-        print(f'decrypt_data=', txt)
+        # print(f'decrypt_data=', txt)
         # проверяем, полученный текст - английский или нет
         is_english = detectEnglish.isEnglish(txt)
         if is_english:
+            print(txt)
             print(f'Key found = {k}')
             print('\n')
             return
@@ -135,11 +136,11 @@ def decryptWithTable():
 
 
 if __name__ == '__main__':
-    test1()
-    encrypt1()
-    decrypt1()
+    # test1()
+    # encrypt1()
+    # decrypt1()
     decryptUnknowText()
-    encryptImage()
-    decryptImage()
-    testDecryptN2()
-    decryptWithTable()
+    # encryptImage()
+    # decryptImage()
+    # testDecryptN2()
+    # decryptWithTable()
